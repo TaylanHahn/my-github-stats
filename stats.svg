@@ -1,7 +1,7 @@
 
       <svg width="400" height="212" viewBox="0 0 400 212" xmlns="http://www.w3.org/2000/svg">
         <style>
-          .bg { fill: #130f1c; }
+          .bg { fill: #000000; }
           .title { font-family: 'Segoe UI', Ubuntu, Sans-Serif; fill: #a78bfa; font-size: 18px; font-weight: bold; }
           .text { font-family: 'Segoe UI', Ubuntu, Sans-Serif; fill: #e2e8f0; font-size: 13px; font-weight: 600; }
           .percent { fill: #94a3b8; font-weight: 400; }
@@ -22,7 +22,7 @@
         <rect x="25" y="60" width="350" height="12" rx="6" fill="#2d2b55" />
 
         <g class="bar-container">
-          <rect x="25" y="60" width="96.06918739440914" height="12" fill="#563d7c" /><rect x="121.06918739440914" y="60" width="95.9624666278784" height="12" fill="#e34c26" /><rect x="217.03165402228754" y="60" width="88.20994931638872" height="12" fill="#b07219" /><rect x="305.24160333867627" y="60" width="43.96115784233717" height="12" fill="#555555" /><rect x="349.20276118101344" y="60" width="12.459593792689898" height="12" fill="#f1e05a" /><rect x="361.6623549737033" y="60" width="6.684641248897144" height="12" fill="#4F5D95" /><rect x="368.34699622260047" y="60" width="3.63674962856208" height="12" fill="#8b5cf6" /><rect x="371.98374585116255" y="60" width="3.016254148837434" height="12" fill="#41b883" />
+          <rect x="25" y="60" width="96.0691262397966" height="12" fill="#563d7c" /><rect x="121.0691262397966" y="60" width="95.96240554120095" height="12" fill="#e34c26" /><rect x="217.03153178099757" y="60" width="88.20989316471909" height="12" fill="#b07219" /><rect x="305.24142494571663" y="60" width="43.961129858051606" height="12" fill="#555555" /><rect x="349.20255480376824" y="60" width="12.45980866025897" height="12" fill="#f1e05a" /><rect x="361.6623634640272" y="60" width="6.6846369936655075" height="12" fill="#4F5D95" /><rect x="368.3470004576927" y="60" width="3.6367473135220503" height="12" fill="#8b5cf6" /><rect x="371.9837477712147" y="60" width="3.0162522287852425" height="12" fill="#41b883" />
         </g>
         
         
