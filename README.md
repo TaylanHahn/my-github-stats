@@ -3,7 +3,7 @@
 > Um gerador de estatísticas de linguagens self-hosted, rodando via GitHub Actions. Sem dependências externas, sem downtime.
 
 <div align="center">
-    <img src="stats.svg"></img>
+    <img src="stats.svg"></img> 
 </div>
 
 ## 💡 Sobre o Projeto
