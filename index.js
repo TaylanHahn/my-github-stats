@@ -103,7 +103,7 @@ async function main() {
     const svgContent = `
       <svg width="400" height="${totalSvgHeight}" viewBox="0 0 400 ${totalSvgHeight}" xmlns="http://www.w3.org/2000/svg">
         <style>
-          .bg { fill: #130f1c; }
+          .bg { fill: #000000; }
           .title { font-family: 'Segoe UI', Ubuntu, Sans-Serif; fill: #a78bfa; font-size: 18px; font-weight: bold; }
           .text { font-family: 'Segoe UI', Ubuntu, Sans-Serif; fill: #e2e8f0; font-size: 13px; font-weight: 600; }
           .percent { fill: #94a3b8; font-weight: 400; }
