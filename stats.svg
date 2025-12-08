@@ -1,0 +1,86 @@
+
+      <svg width="400" height="212" viewBox="0 0 400 212" xmlns="http://www.w3.org/2000/svg">
+        <style>
+          .bg { fill: #130f1c; }
+          .title { font-family: 'Segoe UI', Ubuntu, Sans-Serif; fill: #a78bfa; font-size: 18px; font-weight: bold; }
+          .text { font-family: 'Segoe UI', Ubuntu, Sans-Serif; fill: #e2e8f0; font-size: 13px; font-weight: 600; }
+          .percent { fill: #94a3b8; font-weight: 400; }
+          /* Clip Path para arredondar os cantos da barra segmentada */
+          .bar-container { clip-path: url(#roundedCorners); }
+        </style>
+        
+        <rect width="100%" height="100%" rx="12" class="bg" stroke="#3b3b58" stroke-width="1" />
+        
+        <text x="25" y="35" class="title">Most Used Languages</text>
+        
+        <defs>
+          <clipPath id="roundedCorners">
+            <rect x="25" y="60" width="350" height="12" rx="6" />
+          </clipPath>
+        </defs>
+
+        <rect x="25" y="60" width="350" height="12" rx="6" fill="#2d2b55" />
+
+        <g class="bar-container">
+          <rect x="25" y="60" width="96.06918739440914" height="12" fill="#563d7c" /><rect x="121.06918739440914" y="60" width="95.9624666278784" height="12" fill="#e34c26" /><rect x="217.03165402228754" y="60" width="88.20994931638872" height="12" fill="#b07219" /><rect x="305.24160333867627" y="60" width="43.96115784233717" height="12" fill="#555555" /><rect x="349.20276118101344" y="60" width="12.459593792689898" height="12" fill="#f1e05a" /><rect x="361.6623549737033" y="60" width="6.684641248897144" height="12" fill="#4F5D95" /><rect x="368.34699622260047" y="60" width="3.63674962856208" height="12" fill="#8b5cf6" /><rect x="371.98374585116255" y="60" width="3.016254148837434" height="12" fill="#41b883" />
+        </g>
+        
+        
+        <g>
+          <circle cx="30" cy="90" r="5" fill="#563d7c" />
+          <text x="40" y="95" class="text">
+            CSS <tspan class="percent" dx="5">27.45%</tspan>
+          </text>
+        </g>
+      
+        <g>
+          <circle cx="225" cy="90" r="5" fill="#e34c26" />
+          <text x="235" y="95" class="text">
+            HTML <tspan class="percent" dx="5">27.42%</tspan>
+          </text>
+        </g>
+      
+        <g>
+          <circle cx="30" cy="115" r="5" fill="#b07219" />
+          <text x="40" y="120" class="text">
+            Java <tspan class="percent" dx="5">25.20%</tspan>
+          </text>
+        </g>
+      
+        <g>
+          <circle cx="225" cy="115" r="5" fill="#555555" />
+          <text x="235" y="120" class="text">
+            C <tspan class="percent" dx="5">12.56%</tspan>
+          </text>
+        </g>
+      
+        <g>
+          <circle cx="30" cy="140" r="5" fill="#f1e05a" />
+          <text x="40" y="145" class="text">
+            JavaScript <tspan class="percent" dx="5">3.56%</tspan>
+          </text>
+        </g>
+      
+        <g>
+          <circle cx="225" cy="140" r="5" fill="#4F5D95" />
+          <text x="235" y="145" class="text">
+            PHP <tspan class="percent" dx="5">1.91%</tspan>
+          </text>
+        </g>
+      
+        <g>
+          <circle cx="30" cy="165" r="5" fill="#8b5cf6" />
+          <text x="40" y="170" class="text">
+            PLSQL <tspan class="percent" dx="5">1.04%</tspan>
+          </text>
+        </g>
+      
+        <g>
+          <circle cx="225" cy="165" r="5" fill="#41b883" />
+          <text x="235" y="170" class="text">
+            Vue <tspan class="percent" dx="5">0.86%</tspan>
+          </text>
+        </g>
+      
+      </svg>
+    
