@@ -1,0 +1,49 @@
+name: Update Stats
+
+on:
+  schedule:
+    - cron: '0 4 * * *' # Roda todos os dias às 04:00
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Gerar Stats
+        run: node index.js
+        env:
+          MY_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit e Push
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add stats.svg
+          git commit -m "Update stats" || exit 0
+          git push
+
+      - name: Purge Camo Cache
+        run: |
+          # 1. Espera 10s para garantir que o GitHub Raw propagou a mudança
+          sleep 10
+          
+          # 2. Vai à página do seu perfil buscar todos os links de imagens em cache
+          # Substitui automaticamente pelo dono do repositório
+          curl -s https://github.com/${{ github.repository_owner }} | \
+          grep -oE 'https://camo.githubusercontent.com/[^"]+' | \
+          sort | uniq | \
+          xargs -n 1 curl -X PURGE
+          
+          echo "Cache limpa com sucesso!"
