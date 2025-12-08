@@ -1,25 +1,32 @@
-import { Octokit } from "@octokit/rest"; // Mudou de require para import
-import fs from "fs"; // Mudou de require para import
+import { Octokit } from "@octokit/rest";
+import fs from "fs";
 
-// O token é injetado pelo GitHub Actions
 const octokit = new Octokit({ auth: process.env.MY_GITHUB_TOKEN });
 
+// Paleta de cores (adicionei mais algumas para garantir)
 const languageColors = {
   "Java": "#b07219",
   "Vue": "#41b883",
   "JavaScript": "#f1e05a",
+  "TypeScript": "#2b7489",
   "HTML": "#e34c26",
   "CSS": "#563d7c",
   "C": "#555555",
   "C++": "#f34b7d",
+  "C#": "#178600",
   "Python": "#3572A5",
-  "TypeScript": "#2b7489",
   "SQL": "#e38c00",
-  "Shell": "#89e051"
+  "Shell": "#89e051",
+  "PHP": "#4F5D95",
+  "Ruby": "#701516",
+  "Go": "#00ADD8",
+  "Swift": "#F05138",
+  "Kotlin": "#A97BFF",
+  "Rust": "#dea584"
 };
 
 async function main() {
-  const username = "TaylanHahn"; 
+  const username = "TaylanHahn";
   const languagesMap = {};
 
   try {
@@ -33,62 +40,103 @@ async function main() {
     // 2. Iterar e somar linguagens
     for (const repo of repos) {
       if (repo.fork) continue;
-
       const { data: langs } = await octokit.repos.listLanguages({
         owner: username,
         repo: repo.name,
       });
-
       for (const [lang, bytes] of Object.entries(langs)) {
         languagesMap[lang] = (languagesMap[lang] || 0) + bytes;
       }
     }
 
-    // 3. Calcular porcentagens
+    // 3. Calcular porcentagens e ordenar
     const totalBytes = Object.values(languagesMap).reduce((a, b) => a + b, 0);
     const stats = Object.entries(languagesMap)
-      .sort(([, a], [, b]) => b - a)
-      .slice(0, 5)
       .map(([lang, bytes]) => ({
         lang,
-        percent: ((bytes / totalBytes) * 100).toFixed(1),
-      }));
+        percent: (bytes / totalBytes) * 100,
+        percentStr: ((bytes / totalBytes) * 100).toFixed(2)
+      }))
+      .filter(item => item.percent > 0.5) 
+      .sort((a, b) => b.percent - a.percent)
+      .slice(0, 8);
 
-    // 4. Gerar SVG
-    const height = stats.length * 40 + 60; 
-    
+    // 4. Gerar SVG 
+    const chartWidth = 350;
+    const barHeight = 12;
+    const startX = 25;
+    const barY = 60;
+
+    const legendRows = Math.ceil(stats.length / 2);
+    const totalSvgHeight = barY + barHeight + (legendRows * 25) + 40;
+
+    let currentX = startX;
+
+    // A. Gera os segmentos da barra única
+    const barsHtml = stats.map(item => {
+      const segmentWidth = (item.percent / 100) * chartWidth;
+      const color = languageColors[item.lang] || "#8b5cf6";
+      
+      const rect = `<rect x="${currentX}" y="${barY}" width="${segmentWidth}" height="${barHeight}" fill="${color}" />`;
+      
+      currentX += segmentWidth; 
+      return rect;
+    }).join('');
+
+    // B. Gera a legenda em duas colunas
+    const legendHtml = stats.map((item, index) => {
+      const color = languageColors[item.lang] || "#8b5cf6";
+      const colX = index % 2 === 0 ? startX : startX + (chartWidth / 2) + 20;
+      const rowY = barY + 35 + (Math.floor(index / 2) * 25);
+
+      return `
+        <g>
+          <circle cx="${colX + 5}" cy="${rowY - 5}" r="5" fill="${color}" />
+          <text x="${colX + 15}" y="${rowY}" class="text">
+            ${item.lang} <tspan class="percent" dx="5">${item.percentStr}%</tspan>
+          </text>
+        </g>
+      `;
+    }).join('');
+
+    // C. Monta o SVG final
     const svgContent = `
-      <svg width="350" height="${height}" viewBox="0 0 350 ${height}" xmlns="http://www.w3.org/2000/svg">
+      <svg width="400" height="${totalSvgHeight}" viewBox="0 0 400 ${totalSvgHeight}" xmlns="http://www.w3.org/2000/svg">
         <style>
           .bg { fill: #130f1c; }
           .title { font-family: 'Segoe UI', Ubuntu, Sans-Serif; fill: #a78bfa; font-size: 18px; font-weight: bold; }
-          .text { font-family: 'Segoe UI', Ubuntu, Sans-Serif; fill: #e2e8f0; font-size: 14px; font-weight: 500; }
-          .percent { font-family: 'Segoe UI', Ubuntu, Sans-Serif; fill: #94a3b8; font-size: 12px; }
-          .bar-bg { fill: #2d2b55; rx: 5; }
-          .bar-fill { rx: 5; }
+          .text { font-family: 'Segoe UI', Ubuntu, Sans-Serif; fill: #e2e8f0; font-size: 13px; font-weight: 600; }
+          .percent { fill: #94a3b8; font-weight: 400; }
+          /* Clip Path para arredondar os cantos da barra segmentada */
+          .bar-container { clip-path: url(#roundedCorners); }
         </style>
-        <rect width="100%" height="100%" rx="10" class="bg" stroke="#3b3b58" stroke-width="1" />
-        <text x="25" y="35" class="title">Top Languages</text>
-        ${stats.map((item, index) => {
-          const y = 70 + index * 40;
-          const width = Math.max(item.percent * 2, 10);
-          const color = languageColors[item.lang] || "#8b5cf6"; 
-          return `
-            <text x="25" y="${y - 12}" class="text">${item.lang}</text>
-            <rect x="25" y="${y - 5}" width="250" height="8" class="bar-bg" />
-            <rect x="25" y="${y - 5}" width="${width * 2.5}" height="8" class="bar-fill" fill="${color}" />
-            <text x="${30 + (width * 2.5)}" y="${y + 3}" class="percent">${item.percent}%</text>
-          `;
-        }).join('')}
+        
+        <rect width="100%" height="100%" rx="12" class="bg" stroke="#3b3b58" stroke-width="1" />
+        
+        <text x="${startX}" y="35" class="title">Most Used Languages</text>
+        
+        <defs>
+          <clipPath id="roundedCorners">
+            <rect x="${startX}" y="${barY}" width="${chartWidth}" height="${barHeight}" rx="${barHeight / 2}" />
+          </clipPath>
+        </defs>
+
+        <rect x="${startX}" y="${barY}" width="${chartWidth}" height="${barHeight}" rx="${barHeight / 2}" fill="#2d2b55" />
+
+        <g class="bar-container">
+          ${barsHtml}
+        </g>
+        
+        ${legendHtml}
       </svg>
     `;
 
     fs.writeFileSync("stats.svg", svgContent);
-    console.log("SVG gerado com sucesso!");
+    console.log("SVG Stacked Bar gerado com sucesso!");
 
   } catch (error) {
-    console.error("Erro ao gerar stats:", error);
-    process.exit(1); 
+    console.error("Erro:", error);
+    process.exit(1);
   }
 }
 
