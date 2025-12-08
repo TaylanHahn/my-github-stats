@@ -1,4 +1,4 @@
-# 📊 My GitHub Stats Generator
+# 📊 GitHub Stats Generator
 
 > Um gerador de estatísticas de linguagens self-hosted, rodando via GitHub Actions. Sem dependências externas, sem downtime.
 
