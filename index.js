@@ -3,7 +3,7 @@ import fs from "fs";
 
 const octokit = new Octokit({ auth: process.env.MY_GITHUB_TOKEN });
 
-// Paleta de cores (adicionei mais algumas para garantir)
+// cores
 const languageColors = {
   "Java": "#b07219",
   "Vue": "#41b883",
@@ -30,14 +30,14 @@ async function main() {
   const languagesMap = {};
 
   try {
-    // 1. Buscar repositórios
+    // 1. busca os repos
     const { data: repos } = await octokit.repos.listForUser({
       username,
       per_page: 100,
       type: "owner",
     });
 
-    // 2. Iterar e somar linguagens
+    // 2. itera e soma as linguagens
     for (const repo of repos) {
       if (repo.fork) continue;
       const { data: langs } = await octokit.repos.listLanguages({
@@ -49,7 +49,7 @@ async function main() {
       }
     }
 
-    // 3. Calcular porcentagens e ordenar
+    // 3. calculo de % e ordenar
     const totalBytes = Object.values(languagesMap).reduce((a, b) => a + b, 0);
     const stats = Object.entries(languagesMap)
       .map(([lang, bytes]) => ({
@@ -72,7 +72,7 @@ async function main() {
 
     let currentX = startX;
 
-    // A. Gera os segmentos da barra única
+    // a. barra única
     const barsHtml = stats.map(item => {
       const segmentWidth = (item.percent / 100) * chartWidth;
       const color = languageColors[item.lang] || "#8b5cf6";
@@ -83,7 +83,7 @@ async function main() {
       return rect;
     }).join('');
 
-    // B. Gera a legenda em duas colunas
+    // b. legenda em duas colunas
     const legendHtml = stats.map((item, index) => {
       const color = languageColors[item.lang] || "#8b5cf6";
       const colX = index % 2 === 0 ? startX : startX + (chartWidth / 2) + 20;
@@ -99,7 +99,7 @@ async function main() {
       `;
     }).join('');
 
-    // C. Monta o SVG final
+    // c. SVG final
     const svgContent = `
       <svg width="400" height="${totalSvgHeight}" viewBox="0 0 400 ${totalSvgHeight}" xmlns="http://www.w3.org/2000/svg">
         <style>
@@ -107,7 +107,6 @@ async function main() {
           .title { font-family: 'Segoe UI', Ubuntu, Sans-Serif; fill: #a78bfa; font-size: 18px; font-weight: bold; }
           .text { font-family: 'Segoe UI', Ubuntu, Sans-Serif; fill: #e2e8f0; font-size: 13px; font-weight: 600; }
           .percent { fill: #94a3b8; font-weight: 400; }
-          /* Clip Path para arredondar os cantos da barra segmentada */
           .bar-container { clip-path: url(#roundedCorners); }
         </style>
         
