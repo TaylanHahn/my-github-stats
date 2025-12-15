@@ -5,7 +5,6 @@
           .title { font-family: 'Segoe UI', Ubuntu, Sans-Serif; fill: #a78bfa; font-size: 18px; font-weight: bold; }
           .text { font-family: 'Segoe UI', Ubuntu, Sans-Serif; fill: #e2e8f0; font-size: 13px; font-weight: 600; }
           .percent { fill: #94a3b8; font-weight: 400; }
-          /* Clip Path para arredondar os cantos da barra segmentada */
           .bar-container { clip-path: url(#roundedCorners); }
         </style>
         
@@ -22,7 +21,7 @@
         <rect x="25" y="60" width="350" height="12" rx="6" fill="#2d2b55" />
 
         <g class="bar-container">
-          <rect x="25" y="60" width="95.67562495879254" height="12" fill="#563d7c" /><rect x="120.67562495879254" y="60" width="95.56934139055551" height="12" fill="#e34c26" /><rect x="216.24496634934803" y="60" width="88.76364284156554" height="12" fill="#b07219" /><rect x="305.0086091909136" y="60" width="43.78106409092523" height="12" fill="#555555" /><rect x="348.7896732818388" y="60" width="12.537245211058309" height="12" fill="#f1e05a" /><rect x="361.3269184928971" y="60" width="6.657256571640134" height="12" fill="#4F5D95" /><rect x="367.9841750645372" y="60" width="3.6218511155178446" height="12" fill="#8b5cf6" /><rect x="371.6060261800551" y="60" width="3.0038975924695572" height="12" fill="#41b883" />
+          <rect x="25" y="60" width="95.68599802309518" height="12" fill="#563d7c" /><rect x="120.68599802309518" y="60" width="95.57970293169026" height="12" fill="#e34c26" /><rect x="216.26570095478544" y="60" width="88.77326651504902" height="12" fill="#b07219" /><rect x="305.03896746983446" y="60" width="43.78581079410327" height="12" fill="#555555" /><rect x="348.82477826393773" y="60" width="12.500657805889247" height="12" fill="#f1e05a" /><rect x="361.325436069827" y="60" width="6.65797834534714" height="12" fill="#4F5D95" /><rect x="367.98341441517414" y="60" width="3.622243793324046" height="12" fill="#8b5cf6" /><rect x="371.6056582084982" y="60" width="3.0042232723164215" height="12" fill="#41b883" />
         </g>
         
         
@@ -57,7 +56,7 @@
         <g>
           <circle cx="30" cy="140" r="5" fill="#f1e05a" />
           <text x="40" y="145" class="text">
-            JavaScript <tspan class="percent" dx="5">3.58%</tspan>
+            JavaScript <tspan class="percent" dx="5">3.57%</tspan>
           </text>
         </g>
       
