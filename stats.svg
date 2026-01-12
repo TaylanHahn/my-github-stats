@@ -21,49 +21,49 @@
         <rect x="25" y="60" width="350" height="12" rx="6" fill="#2d2b55" />
 
         <g class="bar-container">
-          <rect x="25" y="60" width="94.57286325094296" height="12" fill="#563d7c" /><rect x="119.57286325094296" y="60" width="94.4678047120619" height="12" fill="#e34c26" /><rect x="214.04066796300486" y="60" width="91.8275235198903" height="12" fill="#b07219" /><rect x="305.86819148289516" y="60" width="43.27644150780466" height="12" fill="#555555" /><rect x="349.14463299069985" y="60" width="12.351506507488203" height="12" fill="#f1e05a" /><rect x="361.49613949818803" y="60" width="6.580524722439288" height="12" fill="#4F5D95" /><rect x="368.0766642206273" y="60" width="3.5801054909301233" height="12" fill="#8b5cf6" /><rect x="371.65676971155744" y="60" width="2.969274528959873" height="12" fill="#41b883" />
+          <rect x="25" y="60" width="94.07366081864055" height="12" fill="#563d7c" /><rect x="119.07366081864055" y="60" width="93.96915683078332" height="12" fill="#e34c26" /><rect x="213.04281764942385" y="60" width="93.19028577305835" height="12" fill="#b07219" /><rect x="306.2331034224822" y="60" width="43.04800700641111" height="12" fill="#555555" /><rect x="349.2811104288933" y="60" width="12.286309136073356" height="12" fill="#f1e05a" /><rect x="361.5674195649667" y="60" width="6.54578945235921" height="12" fill="#4F5D95" /><rect x="368.1132090173259" y="60" width="3.561207920236622" height="12" fill="#8b5cf6" /><rect x="371.6744169375625" y="60" width="2.9536012267452914" height="12" fill="#41b883" />
         </g>
         
         
         <g>
           <circle cx="30" cy="90" r="5" fill="#563d7c" />
           <text x="40" y="95" class="text">
-            CSS <tspan class="percent" dx="5">27.02%</tspan>
+            CSS <tspan class="percent" dx="5">26.88%</tspan>
           </text>
         </g>
       
         <g>
           <circle cx="225" cy="90" r="5" fill="#e34c26" />
           <text x="235" y="95" class="text">
-            HTML <tspan class="percent" dx="5">26.99%</tspan>
+            HTML <tspan class="percent" dx="5">26.85%</tspan>
           </text>
         </g>
       
         <g>
           <circle cx="30" cy="115" r="5" fill="#b07219" />
           <text x="40" y="120" class="text">
-            Java <tspan class="percent" dx="5">26.24%</tspan>
+            Java <tspan class="percent" dx="5">26.63%</tspan>
           </text>
         </g>
       
         <g>
           <circle cx="225" cy="115" r="5" fill="#555555" />
           <text x="235" y="120" class="text">
-            C <tspan class="percent" dx="5">12.36%</tspan>
+            C <tspan class="percent" dx="5">12.30%</tspan>
           </text>
         </g>
       
         <g>
           <circle cx="30" cy="140" r="5" fill="#f1e05a" />
           <text x="40" y="145" class="text">
-            JavaScript <tspan class="percent" dx="5">3.53%</tspan>
+            JavaScript <tspan class="percent" dx="5">3.51%</tspan>
           </text>
         </g>
       
         <g>
           <circle cx="225" cy="140" r="5" fill="#4F5D95" />
           <text x="235" y="145" class="text">
-            PHP <tspan class="percent" dx="5">1.88%</tspan>
+            PHP <tspan class="percent" dx="5">1.87%</tspan>
           </text>
         </g>
       
@@ -77,7 +77,7 @@
         <g>
           <circle cx="225" cy="165" r="5" fill="#41b883" />
           <text x="235" y="170" class="text">
-            Vue <tspan class="percent" dx="5">0.85%</tspan>
+            Vue <tspan class="percent" dx="5">0.84%</tspan>
           </text>
         </g>
       
