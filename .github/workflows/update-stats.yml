@@ -2,7 +2,7 @@ name: Update Stats
 
 on:
   schedule:
-    - cron: '0 4 * * *' # Roda todos os dias às 04:00
+    - cron: '0 4 * * *' # Roda todos os dias às 04:00 (ou por volta 01:40 AM no fuso)
   workflow_dispatch:
 
 jobs:
