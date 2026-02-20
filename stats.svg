@@ -21,14 +21,14 @@
         <rect x="25" y="60" width="350" height="12" rx="6" fill="#2d2b55" />
 
         <g class="bar-container">
-          <rect x="25" y="60" width="105.94435338114698" height="12" fill="#b07219" /><rect x="130.94435338114698" y="60" width="89.40163416328956" height="12" fill="#563d7c" /><rect x="220.34598754443653" y="60" width="89.3023202085682" height="12" fill="#e34c26" /><rect x="309.6483077530047" y="60" width="40.91009258441982" height="12" fill="#555555" /><rect x="350.55840033742453" y="60" width="11.67612810048807" height="12" fill="#f1e05a" /><rect x="362.2345284379126" y="60" width="6.220702679551515" height="12" fill="#4F5D95" /><rect x="368.4552311174641" y="60" width="3.3843458933546433" height="12" fill="#8b5cf6" /><rect x="371.83957701081874" y="60" width="2.8069150710185116" height="12" fill="#41b883" />
+          <rect x="25" y="60" width="105.92433665008292" height="12" fill="#b07219" /><rect x="130.92433665008292" y="60" width="89.38474295190713" height="12" fill="#563d7c" /><rect x="220.30907960199005" y="60" width="89.28544776119402" height="12" fill="#e34c26" /><rect x="309.59452736318406" y="60" width="40.902363184079604" height="12" fill="#555555" /><rect x="350.49689054726366" y="60" width="11.673922056384741" height="12" fill="#f1e05a" /><rect x="362.1708126036484" y="60" width="6.21952736318408" height="12" fill="#4F5D95" /><rect x="368.39033996683247" y="60" width="3.3837064676616917" height="12" fill="#8b5cf6" /><rect x="371.77404643449415" y="60" width="2.8063847429519075" height="12" fill="#41b883" />
         </g>
         
         
         <g>
           <circle cx="30" cy="90" r="5" fill="#b07219" />
           <text x="40" y="95" class="text">
-            Java <tspan class="percent" dx="5">30.27%</tspan>
+            Java <tspan class="percent" dx="5">30.26%</tspan>
           </text>
         </g>
       
